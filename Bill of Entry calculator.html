@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customs Duty Calculator</title>
+</head>
+<body>
+    <h1>Customs Duty Calculator by Abinash Mukherjee</h1>
+    <form action="">
+        <label for="value">Total Assessable Value:</label>
+        <input type="text" id="value"><br>
+
+        <label for="insurance">Insurance and Freight:</label>
+        <input type="text" id="insurance"><br>
+
+        <label for="bcd">Basic Custom Duty (BCD):</label>
+        <input type="text" id="bcd"><br>
+
+        <label for="sws">Social Welfare Surcharge (SWS):</label>
+        <input type="text" id="sws"><br>
+
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    <h2>Results:</h2>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            var value = parseFloat(document.getElementById('value').value);
+            var insurance = parseFloat(document.getElementById('insurance').value);
+            var bcd = parseFloat(document.getElementById('bcd').value);
+            var sws = parseFloat(document.getElementById('sws').value);
+
+            var totalValue = value + insurance + bcd + sws;
+            var igst = totalValue * 0.05;
+
+            document.getElementById('result').innerHTML = 'Total value is ' + totalValue.toFixed(2) + ' and IGST is ' + igst.toFixed(2);
+        }
+    </script>
+</body>
+</html>
